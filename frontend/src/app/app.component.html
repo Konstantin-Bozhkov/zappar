@@ -1,0 +1,93 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">{{ company }}</a>
+    </div>
+</nav>
+
+<div class="wrapper">
+
+    <div class="jumbotron">
+       <div class="container">
+            <h1 class="display-4">{{ title }}</h1>
+            <p class="lead">This is a simple app build with Angular and Django Rest Framework.</p>
+            <hr class="my-4">
+            <p class="lead">
+                <strong>Email:</strong> <a href="mailto:konstantin.bozhkov@yahoo.com" role="button">konstantin.bozhkov@yahoo.com</a>
+            </p>
+            <p class="lead">
+                <strong>Tel:</strong> <a href="tel:+44 75 46 86 7968">+44 75 46 86 7968</a>
+            </p>
+       </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-7">
+
+                <form [formGroup]="generatorForm" (ngSubmit)="onSubmit(generatorForm.value)" id="generatorForm">
+
+                  <div class="row">
+                      <div class="col-sm-12 col-md-6 form-group">
+                          <label for="gender">Gender</label>
+                          <select name="gender" id="gender" class="form-control" formControlName="gender">
+                              <option *ngFor="let gender of genders" value="{{gender.toLowerCase()}}">{{gender}}</option>
+                          </select>
+                      </div>
+                      <div class="col-sm-12 col-md-6  form-group">
+                          <label for="nat">Nationality</label>
+                          <select name="nat" id="nat" class="form-control" formControlName="nat">
+                              <option *ngFor="let nat of nationalities" value="{{nat}}">{{nat}}</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-12 form-group">
+                          <button type="submit" class="btn btn-primary" id="generateBtn">Generate</button>
+                      </div>
+                  </div>
+
+                </form>
+
+            </div>
+
+            <div class="col-sm-12 col-md-5" *ngIf="user && showCard">
+                <div class="card">
+                  <div class="card-header">
+                      {{user.fname}} {{user.lname}}
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Gender:</strong> {{user.gender}}</p>
+                    <p><strong>Nationality:</strong> {{user.nat}}</p>
+                    <p><strong>Title:</strong> {{user.title}}</p>
+                    <p><strong>First:</strong> {{user.fname}}</p>
+                    <p><strong>Last:</strong> {{user.lname}}</p>
+                    <p><strong>Email:</strong> {{user.email}}</p>
+                    <p><strong>Phone:</strong> {{user.phone}}</p>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-5" *ngIf="error">
+              <div class="alert alert-danger">{{errorMessage}}</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p>&copy; {{ company }}</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
