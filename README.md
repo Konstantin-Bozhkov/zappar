@@ -1,4 +1,9 @@
+Version 1 can be found [here](https://github.com/Konstantin-Bozhkov/zappar-random)
+
+
 # Zappar V2
+
+The application has been build with Python with Django REST framework and Angular.
 
 ## Back End
 
